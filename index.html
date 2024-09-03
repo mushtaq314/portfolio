@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" type="image/x-icon" href="img/user.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mushtaq Portfolio Website</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />  
+        
+        <!-- Update these with your own fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="index.html">
+                <img src="img/fast-forward.gif" alt="" style="width:49%;">
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#services" class="nav__link">My Services</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About me</a></li>
+                    <li class="nav__item"><a href="#work" class="nav__link">My Work</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <!-- Introduction -->
+        <section class="intro" id="home">
+            <h1 class="section__title section__title--intro">
+                Hi, I am <strong>MuShtaq ShAikh</strong>
+            </h1>
+            <p class="section__subtitle section__subtitle--intro"> Full Stack Dev  </p>
+            <img src="img/user1.png" alt="a picture of Jane Smith smiling" class="at-item intro__img '">
+            
+        </section>
+        
+        
+        <!-- My services -->
+ 
+
+        <section class="my-services" id="services">
+            <h2 class="section__title section__title--services at-item1">What I do</h2>
+            <div class="services">
+                <div class="service">
+                    <h3>Design + Development</h3>
+                    <p>I specialize in creating visually stunning and highly functional websites and applications. From concept to deployment, I handle both the design and development aspects, ensuring a seamless user experience that aligns with your brand's vision. Whether it's crafting a responsive website, building a dynamic web application, or creating a custom CMS, I have the skills to bring your ideas to life with precision and creativity.</p>
+                </div>
+                <div class="service">
+                    <h3>E-Commerce</h3>
+                    <p>I specialize in designing and developing e-commerce platforms that are tailored to your business needs. From creating intuitive and attractive storefronts to integrating secure payment gateways, I ensure that your online store is not only visually appealing but also optimized for sales and conversions. Whether you need a simple online shop or a complex multi-vendor marketplace, I have the expertise to deliver a seamless and scalable solution that enhances your digital retail presence.</p>
+                </div>
+                <div class="service">
+                    <h3>Billing Software</h3>
+                    <p>I specialize in creating robust billing software solutions that simplify financial management for businesses of all sizes. My software is designed to handle everything from generating invoices and tracking payments to managing subscriptions and automating recurring billing. With a focus on accuracy, security, and ease of use, I develop systems that help businesses streamline their billing processes, reduce manual errors, and improve cash flow management.</p>
+                </div>
+            </div>
+            <a href="#work" class="btn">My Work</a>
+        </section>
+        
+        <style>
+           
+        </style>
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const services = document.querySelectorAll('.service');
+        
+                const updatePosition = () => {
+                    const scrollTop = window.pageYOffset;
+                    services.forEach(service => {
+                        // Adjust the translateY value based on scroll position
+                        const speed = 0.5; // Adjust speed for the vertical movement
+                        service.style.transform = `translateY(${scrollTop * speed}px)`;
+                    });
+                };
+        
+                window.addEventListener('scroll', updatePosition);
+                updatePosition(); // Initial update
+            });
+        </script>
+        
+        <!-- My services End -->
+        
+        <!-- About me -->
+    
+<section class="about-me" id="about">
+    <h2 class="section__title section__title--about">Who <span style="color:#00e0bf;">I Am</span></h2>
+    <p class="section__subtitle section__subtitle--about">Designer & Developer Based Out of Pune</p>
+    
+    <div class="about-me__body">
+        <p>Hello! I’m a passionate designer and developer originally from India and currently based in Pune City. With a deep appreciation for diverse cultures and a rich background in design and technology, I bring a unique perspective to my work. My journey has been shaped by my experiences across different regions, combining traditional design sensibilities with modern technological innovations.</p>
+        <p>From crafting intuitive user interfaces to developing responsive websites and applications, my goal is to create products that not only look great but also function seamlessly. I’m excited to collaborate on projects that blend creativity and technology, and I’m committed to delivering high-quality solutions that resonate with users from all walks of life.</p>
+    </div>
+    
+    <img src="img/dev-jane-02-2.jpg" alt="Jane leaning against a bus" class="about-me__img">
+</section>
+
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const title = document.querySelector('.section__title--about');
+                const subtitle = document.querySelector('.section__subtitle--about');
+                const text = document.querySelectorAll('.about-me__body p');
+                const img = document.querySelector('.about-me__img');
+        
+                const animateOnScroll = () => {
+                    const triggerBottom = window.innerHeight / 5 * 4;
+        
+                    if (title.getBoundingClientRect().top < triggerBottom) {
+                        title.classList.add('animate-title');
+                    }
+        
+                    if (subtitle.getBoundingClientRect().top < triggerBottom) {
+                        subtitle.classList.add('animate-subtitle');
+                    }
+        
+                    text.forEach(p => {
+                        if (p.getBoundingClientRect().top < triggerBottom) {
+                            p.classList.add('animate-text');
+                        }
+                    });
+        
+                    if (img.getBoundingClientRect().top < triggerBottom) {
+                        img.classList.add('animate-img');
+                    }
+                };
+        
+                window.addEventListener('scroll', animateOnScroll);
+                animateOnScroll(); // Initial check in case elements are already in view
+            });
+        </script>
+         <!-- About me End-->
+ 
+        
+<!-- My Work -->
+<section class="my-work" id="work">
+    <h2 class="section__title section__title--work animate-title">My Work</h2>
+    <p class="section__subtitle section__subtitle--work animate-subtitle">A selection of my range of work <small style="font-size:60% !important;"> (Click to view details) </small></p>
+    
+    <div class="portfolio">
+        <!-- Portfolio item 01 -->
+        <a href="ecomm.html" class="portfolio__item animate-item">
+            <img src="img/portfolio-01.jpg" alt="Portfolio Item 01" class="portfolio__img">
+            <div class="portfolio__overlay"></div>
+        </a>
+        
+        <!-- Portfolio item 02 -->
+        <a href="billings.html" class="portfolio__item animate-item">
+            <img src="img/portfolio-02.jpg" alt="Portfolio Item 02" class="portfolio__img">
+            <div class="portfolio__overlay"></div>
+        </a>
+        
+        <!-- Portfolio item 03 -->
+        <a href="personal-web-page.html" class="portfolio__item animate-item">
+            <img src="img/portfolio-03.jpg" alt="Portfolio Item 03" class="portfolio__img">
+            <div class="portfolio__overlay"></div>
+        </a>
+        
+        <!-- Portfolio item 04 -->
+        <a href="canine.html" class="portfolio__item animate-item">
+            <img src="img/portfolio-04.jpg" alt="Portfolio Item 04" class="portfolio__img">
+            <div class="portfolio__overlay"></div>
+        </a>
+        
+        <!-- Portfolio item 05 -->
+        <a href="office-tool.html" class="portfolio__item animate-item">
+            <img src="img/portfolio-05.jpg" alt="Portfolio Item 05" class="portfolio__img">
+            <div class="portfolio__overlay"></div>
+        </a>
+    </div>
+</section>
+
+ 
+        
+        
+   <!-- Footer -->
+   <footer class="footer">
+    <!-- replace with your own email address -->
+    <a href="mailto:mushtaqshaikh884@gmail.com" class="footer__link">mushtaqshaikh884@gmail.com</a>
+    <ul class="social-list">
+        <li class="social-list__item">
+            <a class="social-list__link" href="tel://+91 8793336313" onclick="window.open('thispage.htm','_self');">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+            </a>
+        </li>
+        <!-- <li class="social-list__item">
+            <a class="social-list__link" href="http://dribbble.com">
+                <i class="fab fa-dribbble"></i>
+            </a>
+        </li> -->
+        <li class="social-list__item">
+            <a class="social-list__link" href="whatsapp://send?phone=8793336313&text=HI Mushtaq \n have good time to talk? ">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </li>
+        <!-- <li class="social-list__item">
+            <a class="social-list__link" href="https://github.com">
+                <i class="fab fa-github"></i>
+            </a>
+        </li> -->
+    </ul>
+</footer>
+
+
+<script src="js/index.js"></script>
+
+</body>
+</html>

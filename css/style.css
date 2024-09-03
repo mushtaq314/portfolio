@@ -1,0 +1,904 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Custom Properties, update these for your own design */
+
+:root {
+    --ff-primary: 'Source Sans Pro', sans-serif;
+    --ff-secondary: 'Source Code Pro', monospace;
+    
+    --fw-reg: 300;
+    --fw-bold: 900;
+    
+    --clr-light: #fff;
+    --clr-dark: #303030;
+    --clr-accent: #16e0bd;
+    
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+    
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
+          0.125em 0.125em 0.25em rgba(0,0,0,.15);
+}
+
+@media (min-width: 800px) {
+    :root {
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem;
+        --fs-body: 1.125rem;
+    }
+}
+
+/* General styles */
+
+/* endable this to add smooth scrolling */
+/* html {
+    scroll-behavior: smooth;
+} */
+
+
+body {
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+
+section {
+    padding: 5em 2em;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+strong { font-weight: var(--fw-bold) }
+
+:focus {
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 3px;
+}
+
+/* Buttons */
+
+.btn {
+    display: inline-block;
+    padding: .5em 2.5em;
+    background: var(--clr-accent);
+    color: var(--clr-dark);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: transform 200ms ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* Typography */
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+    margin: 0;
+}
+
+h1 { font-size: var(--fs-h1) }
+h2 { font-size: var(--fs-h2) }
+h3 { font-size: var(--fs-h3) }
+
+
+.section__title {
+    margin-bottom: .25em;
+}
+
+.section__title--intro {
+    font-weight: var(--fw-reg);
+}
+
+.section__title--intro strong {
+    display: block;
+}
+
+.section__subtitle {
+    margin: 0;
+    font-size: var(--fs-h3);
+}
+
+.section__subtitle--intro,
+.section__subtitle--about {
+    background: var(--clr-accent);
+    padding: .25em 1em;
+    font-family: var(--ff-secondary);
+    margin-bottom: 1em;
+}
+
+.section__subtitle--work {
+    color: var(--clr-accent);
+    font-weight: var(--fw-bold);
+    margin-bottom: 2em;
+}
+
+/* header */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.logo {
+    max-width: 100px;
+}
+
+.nav {
+    position: fixed;
+    background: var(--clr-dark);
+    color: var(--clr-light);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    
+    transform: translateX(100%);
+    transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
+}
+
+.nav__list {
+    list-style: none;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__link {
+    color: inherit;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h2);
+    text-decoration: none;
+}
+
+.nav__link:hover {
+    color: var(--clr-accent);
+}
+
+.nav-toggle {
+    padding: .5em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    z-index: 1000;
+}
+
+.nav-open .nav {
+    transform: translateX(0);
+}
+
+.nav-open .nav-toggle {
+    position: fixed;
+}
+
+.nav-open .hamburger {
+    transform: rotate(.625turn);
+}
+
+.nav-open .hamburger::before {
+    transform: rotate(90deg) translateX(-6px);
+}
+
+.nav-open .hamburger::after {
+    opacity: 0;
+}
+
+
+
+
+
+
+.hamburger {
+    display: block;
+    position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    background: var(--clr-accent);
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+}
+
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.hamburger::before { top: 6px; }
+.hamburger::after { bottom: 6px; }
+
+
+/*  Intro section  */
+
+.intro {
+    position: relative;
+}
+
+.intro__img {
+    box-shadow: var(--bs);
+}
+
+.section__subtitle--intro {
+    display: inline-block;
+}
+
+@media (min-width: 600px) {
+    .intro {
+        display: grid;
+        width: min-content;
+        margin: 0 auto;
+        grid-column-gap: 2em;
+        grid-template-areas: 
+            "img title"
+            "img subtitle";
+        grid-template-columns: min-content max-content;
+        margin-bottom: 120px;
+    }
+    
+    .intro__img {
+        grid-area: img;
+        min-width: 250px;
+        position: relative;
+        z-index: 2;
+    }    
+    
+    .section__subtitle--intro {
+        align-self: start;
+        grid-column: -1 / 1;
+        grid-row: 2;
+        text-align: right;
+        position: relative;
+        left: -1.5em;
+        width: calc(100% + 1.5em);
+    }
+}
+
+
+/*  My services section  */
+
+  /* Add the previously mentioned CSS here */
+    /* Keyframes for up and down movement */
+    @keyframes moveUpDown {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-20px); /* Adjust the amount of vertical movement */
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    /* Service items with animation */
+    .service {
+        max-width: 500px;
+        margin: 4px auto;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        border-radius: 10px;
+        animation: moveUpDown 3s ease-in-out infinite; /* Adjust the duration and easing */
+    }
+
+    .my-services {
+        background-color: var(--clr-dark);
+        background-image: url(../img/services-bg.jpg);
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: var(--clr-light);
+        text-align: center;
+        padding: 100px 0;
+    }
+    
+    .section__title--services {
+        color: var(--clr-accent);
+        position: relative;
+    }
+    
+    .section__title--services::after {
+        content: '';
+        display: block;
+        width: 2em;
+        height: 1px;
+        margin: 0.5em auto 1em;
+        background: var(--clr-light);
+        opacity: 0.25;
+    }
+    
+    .services {
+        margin-bottom: 4em;
+    }
+    
+    @media (min-width: 800px) {
+        .services {
+            display: flex;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .service + .service {
+            margin-left: 2em;
+        }
+    }
+/* Keyframes for animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Initial state of the elements */
+.section__title--about,
+.section__subtitle--about,
+.about-me__body p,
+.about-me__img {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Add the animation when the element comes into view */
+.animate-title {
+    animation: fadeInUp 0.6s forwards;
+}
+
+.animate-subtitle {
+    animation: fadeInUp 0.8s forwards;
+}
+
+.animate-text {
+    animation: fadeInUp 1s forwards;
+}
+
+.animate-img {
+    animation: slideInLeft 1s forwards;
+}
+
+/* Style adjustments for the About Me section */
+.about-me {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 20px; /* Adjust padding as needed */
+}
+
+.about-me__img {
+    box-shadow: var(--bs);
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+@media (min-width: 600px) {
+    .about-me {
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        grid-template-areas: 
+            "title img"
+            "subtitle img"
+            "text img";
+        grid-column-gap: 2em;
+        text-align: left;
+    }
+    
+    .section__title--about {
+        grid-area: title;
+    }
+    
+    .section__subtitle--about {
+        grid-area: subtitle;
+        margin-bottom: 1em;
+    }
+    
+    .about-me__body {
+        grid-area: text;
+    }
+    
+    .about-me__img {
+        grid-area: img;
+        position: relative;
+        z-index: 2;
+    }
+}
+
+/* Keyframes for animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleUp {
+    0% {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleImg {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+/* Keyframes for animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleUp {
+    0% {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes rotateIn {
+    0% {
+        opacity: 0;
+        transform: rotate(-30deg) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+/* Section Styles */
+ /* Portfolio Item Styles */
+ .my-work {
+    background-color: var(--clr-dark);
+    background-image: url(../img/services-bg1.jpg); /* Make sure the path is correct */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Fix the background image */
+    color: var(--clr-light);
+    text-align: center;
+    padding: 80px 20px; /* Increased padding for better spacing */
+    position: relative;
+    z-index: 1;
+}
+
+/* Optional: Add a subtle overlay to the background image for better contrast */
+.my-work::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: -1; /* Ensure the overlay is behind the content */
+}
+
+/* Section Title Styles */
+.section__title--work,
+.section__subtitle--work {
+    opacity: 0;
+}
+
+/* Animate title and subtitle */
+.animate-title {
+    animation: fadeInUp 1s forwards;
+}
+
+.animate-subtitle {
+    animation: fadeInUp 1.2s forwards;
+}
+
+/* Portfolio Grid Styles */
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller min size */
+    gap: 30px;
+    padding: 20px;
+}
+
+/* Portfolio Item Styles */
+.portfolio__item {
+    position: relative;
+    overflow: hidden;
+    width: 180px; /* Smaller size */
+    height: 180px; /* Maintain circular shape */
+    margin: 0 auto; /* Center align in grid */
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    background: #2e2e2e; /* Solid background for better contrast */
+}
+
+/* Image Styles */
+.portfolio__img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+}
+
+/* Overlay Effect */
+.portfolio__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 50%;
+}
+
+/* Hover effects */
+.portfolio__item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.portfolio__item:hover .portfolio__img {
+    transform: scale(1.05);
+}
+
+.portfolio__item:hover .portfolio__overlay {
+    opacity: 1;
+}
+
+/* Text Overlay (Optional) */
+.portfolio__overlay::after {
+    content: 'View Details';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #00e0bf;
+    font-size: 1em;
+    opacity: 0;
+    font-weight: 400;
+    transition: opacity 0.3s ease;
+    text-align: center;
+}
+
+.portfolio__item:hover .portfolio__overlay::after {
+    opacity: 1;
+}
+
+/* Animation effects for portfolio items */
+.animate-item {
+    opacity: 0;
+    animation: fadeInUp 0.6s forwards;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* footer */
+
+.footer {
+    background: #ffffff;
+    color: var(--clr-accent);
+    text-align: center;
+    padding: 2.5em 0;
+    font-size: var(--fs-h3);
+
+}
+
+.footer a { 
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer__link {
+    font-weight: var(--fw-bold);
+}
+
+.footer__link:hover,
+.social-list__link:hover {
+    opacity: .7;
+}
+
+.footer__link:hover {
+    text-decoration: underline;
+}
+
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 0;
+    padding: 0;
+}
+
+.social-list__item {
+    margin: 0 .5em;
+}
+
+.social-list__link {
+    padding: .5em;
+}
+
+
+/* Individual portfolio item styles */
+
+.portfolio-item-individual {
+    padding: 0 2em 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.portfolio-item-individual p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Animation */
+ 
+ 
+ 
+.at-item {
+    width: 100px; height: 100%; background-color:#ffe672; 
+    
+    animation-name: slide-in-fwd-left;
+		animation-duration: 1.2s;
+		animation-timing-function: linear;
+		animation-delay: 0s;
+		animation-iteration-count: 1;
+		animation-direction: normal;
+		animation-fill-mode: both;
+        
+    /* shorthand
+    animation: slide-in-fwd-left 3.2s linear 0s 1 normal both;*/
+        
+    /* shorthand
+    animation: shutter-in-left 1s linear 0s 1 normal none;*/
+}
+ 
+        
+    @keyframes slide-in-fwd-left {
+			
+		0% {
+			transform:translateZ(-1400px) translateX(-1000px);
+			opacity:0;
+		}
+		100% {
+			transform:translateZ(0) translateX(0);
+			opacity:1;
+		}
+}
+
+ 
+	.at-item1 {
+		/* width: 100px; height: 100px; background-color:#ffe672;  */
+		
+		animation-name: slide-in-bottom;
+		animation-duration: 1s;
+		animation-timing-function: linear;
+		animation-delay: 0s;
+		animation-iteration-count: 1;
+		animation-direction: normal;
+		animation-fill-mode: none;
+			
+		/* shorthand
+		animation: slide-in-bottom 1s linear 0s 1 normal none;*/
+	}
+	@keyframes slide-in-bottom {
+			
+		0% {
+			transform:translateY(1000px);
+			opacity:0;
+		}
+		100% {
+			transform:translateY(0);
+			opacity:1;
+		}
+	}
+ 
+/* Initial state of the elements */
+.section__title--about1,
+.section__subtitle--about1,
+.about-me__body1 p,
+.about-me__img1 {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Add the animation when the element comes into view */
+.animate-title1 {
+    animation: fadeInUp 0.6s forwards;
+}
+
+.animate-subtitle1 {
+    animation: fadeInUp 0.8s forwards;
+}
+
+.animate-text1 {
+    animation: fadeInUp 1s forwards;
+}
+
+.animate-img1 {
+    animation: slideInLeft 1s forwards;
+}
+
+/* Style adjustments for the About Me section */
+.about-me1 {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 20px; /* Adjust padding as needed */
+}
+
+.about-me__img1 {
+    box-shadow: var(--bs);
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+@media (min-width: 600px) {
+    .about-me1 {
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        grid-template-areas: 
+            "title img"
+            "subtitle img"
+            "text img";
+        grid-column-gap: 2em;
+        text-align: left;
+    }
+    
+    .section__title--about1 {
+        grid-area: title;
+    }
+    
+    .section__subtitle--about1 {
+        grid-area: subtitle;
+        margin-bottom: 1em;
+    }
+    
+    .about-me__body1 {
+        grid-area: text;
+    }
+    
+    .about-me__img1 {
+        grid-area: img;
+        position: relative;
+        z-index: 2;
+    }
+}
+
+
+/* Keyframes for scroll animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-on-scroll {
+    opacity: 0; /* Start as invisible */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Animation classes */
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-slide-up {
+    animation: slideUp 1s ease-out forwards;
+}

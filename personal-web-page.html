@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" type="image/x-icon" href="img/user.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mushtaq Portfolio Website</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />  
+        
+        <!-- Update these with your own fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="index.html">
+                <img src="img/fast-forward.gif" alt="" style="width:49%;">
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+<!--                     <li class="nav__item"><a href="#services" class="nav__link">My Services</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About me</a></li>
+                    <li class="nav__item"><a href="#work" class="nav__link">My Work</a></li> -->
+                </ul>
+            </nav>
+        </header>
+<section class="intro animate-on-scroll">
+    <h1 class="section__title section__title--intro">
+        Company <strong>Personal Website</strong>
+    </h1>
+    <p class="section__subtitle section__subtitle--intro">Small scale company(ahmednagar)</p>
+    <img src="img/domin.jpg" alt="Hardware Shop" class="intro__img">
+</section>
+
+<div class="portfolio-item-individual animate-on-scroll">
+    <h3>Project Overview</h3><br>
+    <strong>Concept:</strong> This project involved the development of a responsive company portal for a small-scale business. The portal was designed to streamline operations and enhance communication within the company. Key features include job vacancy updates, employee management, and a dynamic content management system.
+    <br><br>
+    <h3>Technologies Used</h3>
+    <ul>
+            <li><strong>HTML & CSS:</strong> For structuring and styling the website.</li>
+            <li><strong>JavaScript:</strong> To add interactivity and enhance user experience.</li>
+            <li><strong>PHP:</strong> For backend development and server-side scripting.</li>
+            <li><strong>MySQL:</strong> To manage the database and store company data.</li>
+        </ul>
+        <h3>Key Features</h3>
+        <ul>
+            <li><strong>Responsive Design:</strong> The portal is fully responsive, ensuring accessibility across all devices.</li>
+            <li><strong>Job Vacancy Updates:</strong> Dynamic job posting feature that allows the HR team to update job vacancies easily.</li>
+            <li><strong>Employee Management:</strong> An admin panel for managing employee records, performance tracking, and internal communication.</li>
+            <li><strong>Content Management System (CMS):</strong> Custom-built CMS for managing company news, events, and updates.</li>
+            <li><strong>User Authentication:</strong> Secure login system for employees and admins with role-based access control.</li>
+        </ul>
+        <h3>Project Outcome</h3><br>
+         -The portal successfully improved internal communication and streamlined HR operations. The job vacancy feature helped the company attract and manage candidates more effectively. 
+<br><br>
+         
+ 
+    <img src="img/portfolio-06.jpg" alt="E-Commerce" class="animate-img" style="width:40%;">
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-fade-in'); // Or 'animate-slide-up'
+                observer.unobserve(entry.target); // Stop observing once animated
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elements.forEach(element => {
+        observer.observe(element);
+    });
+});
+
+</script>
+   <!-- Footer -->
+   <footer class="footer" style="background:#111 !important;">
+    <!-- replace with your own email address -->
+    <a href="mailto:mushtaqshaikh884@gmail.com" class="footer__link">mushtaqshaikh884@gmail.com</a>
+    <ul class="social-list">
+        <li class="social-list__item">
+            <a class="social-list__link" href="tel://+91 8793336313" onclick="window.open('thispage.htm','_self');">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+            </a>
+        </li>
+        <!-- <li class="social-list__item">
+            <a class="social-list__link" href="http://dribbble.com">
+                <i class="fab fa-dribbble"></i>
+            </a>
+        </li> -->
+        <li class="social-list__item">
+            <a class="social-list__link" href="whatsapp://send?phone=8793336313&text=HI Mushtaq \n have good time to talk? ">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </li>
+        <!-- <li class="social-list__item">
+            <a class="social-list__link" href="https://github.com">
+                <i class="fab fa-github"></i>
+            </a>
+        </li> -->
+    </ul>
+</footer>
+
+
+<script src="js/index.js"></script>
+
+</body>
+</html>
