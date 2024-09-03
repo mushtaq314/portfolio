@@ -1,0 +1,68 @@
+Q. How to integrate Hibernate and spring ?.
+- spring is java EE Framework extensively used in enterprise application.
+- Hibernate is the most popular ORM framework .
+---add requred dependancies.
+---Create entity, Controller ,Service and DAO layers as requred.
+-------------------------------------------------------------------------spring--------------------------------------------------------------------------------------------------
+Q1. What is sring Boot , and how does it differ from the sring framwork
+- spring boot is framework that simplify the development of Spring-based application.
+-Auto Configeration: automatically configure many of the spring feature  
+-Started dependancies : provide starter dependacy
+-Embedded Errors :
+-Metrics and health checks:
+
+
+-------------------------------------------------------------------------Hibernate-----------------------------------------------------------------------------------------------
+Q1. What is hibernate and why to use .?
+- Hibernate is Object Relational Mapping (ORM) tool used to map java and database table.
+
+Q2. How.?
+- its provides JPA annotation , and XML Cnfigration two way to configuration achive thi mapping.
+
+Q3. Why hibernate .?
+- Hibernate eliminates all the boiler-plate (Means avoid again and again code) code that comes with JDBS
+- Its supports HQl (means Hibernate Query Language)
+- It provides transaction managment implicity. 
+- Hibernate supports caching for better performance.
+- Hibernate throws JDBCException or HibernateException which are the Unchecked exceptions, so we don't need to worry about handling using try and catch.
+
+Q4. Important interfaces used in Hiberante .?
+- three type of interfaces *SessionFatory (its parent get the session factory object then)->Session (get the physical connection database)->Transaction (save,updated,view,delete somthing)
+ 1- SessionFatory (org.hibernate.SessionFatory)- it used to retrive session object that use again and again  
+ 2- Session (org.hibernate.Session)- it is used to connection application with persistant store like hibernate framework / make the connection Database (crud operations)
+ 3- Transaction (org.hibernate.Transaction)- this specifices single / automic unit of work.
+
+Q5. Important Annotation used in Hibernate .?
+
+ 1- javax.persistence.Entity : Used with model classes to specify that they are entity beans(means there are going to store in the table)
+ 2- javax.persistence.Table : Used with entity beans to define the corresponding table name in database .
+ 3- javax.persistence.Access : Used to define access time either field or property .
+ 4- javax.persistence.Id : Used to define priary key in entity bean.
+ 5- javax.persistence.EmbeddedId : Used to define composite primary key in the entity beans.
+ 6- javax.persistence.Column :Used to define column name in the database table.
+ 7- javax.persistence.GeneratedValue : Used to define the strategy to be used for generation of primary key (eg. GenerationType.IDENTITY)
+ 8- javax.persistence.OneToOne : Used to define the One to One Mapping between two entity beans 
+ 9- org.hibernate.annotations.Cascade : Used to define the cascading between two entity beans , used with mapping 
+ 10- javax.persistence.PrimaryKeyJoinColumn : Used to define the property for foreign Key .
+
+Q6. Mapping in Hibernate .?
+ - There the three type of mapping in hibernate.
+ 1-One-To-One : eg. one emp one mobile 
+ 2-Many-To-One : Many stud's as one address.
+ 3-Many-To-Many :studs degree's
+
+Q7. diffrence between openSession and getCurrentSession 
+- getCurrentSession() method returns the session bound to the context.
+- openSession() method helps in opening a new session
+
+Q8. diffrence between Session get() and load() method ?
+- get() we should use get() when we want to make sure data exits in the database .
+- load() throw exception when data is not found , we should use it only we know data exits.
+
+Q9. Hibernate Caching - Types 
+ - data to make our application fater and improves performance , and reduce the number of database queries.
+- three type 
+ 1- Fisrt lavel cache : is associated with the session object , - is enable by default and there is no way to disable it. - any object cached in a session will not be visible to other session and when the session is closed , all the caches object will also be lost. 
+ 2- Second lavel cache : is disabled by default but we can enable it through configeration. 
+ 3- Query cache : Hibernate Query Cache doesn't cache the state of the actual entities in the cache; it caches only identifier values and results of value type
+
