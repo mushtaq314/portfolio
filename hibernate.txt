@@ -1,5 +1,12 @@
+-------------------------------------------------------------------------Java --------------------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------spring/Hibernate ----------------------------------------------------------------------------------------
+
 Q. How to integrate Hibernate and spring ?.
-- spring is java EE Framework extensively used in enterprise application.
+- spring is java EE(Enterprise Edition) Framework extensively used in enterprise application.
 - Hibernate is the most popular ORM framework .
 ---add requred dependancies.
 ---Create entity, Controller ,Service and DAO layers as requred.
@@ -11,6 +18,22 @@ Q1. What is sring Boot , and how does it differ from the sring framwork
 -Embedded Errors :
 -Metrics and health checks:
 
+Q2. Why Spring .?
+- it removes many of the complexities associated with Java programming and helps speed up application development and testing processes
+
+Q3. Spring Features:
+ 1-Core technologies: dependency injection, events, resources, i18n, validation, data binding, type conversion, SpEL, AOP.
+ 2-Testing: mock objects, TestContext framework, Spring MVC Test, WebTestClient.
+ 3-Data Access: transactions, DAO support, JDBC, ORM, Marshalling XML.
+ 4-Spring MVC and Spring WebFlux web frameworks.
+ 5-Integration: remoting, JMS, JCA, JMX, email, tasks, scheduling, cache and observability.
+ 6-Languages: Kotlin, Groovy, dynamic languages 
+
+Q4. Modules:
+- The Spring Framework consists of features organized into about 20 modules. These modules are grouped into Core Container, Data Access/Integration, Web, AOP (Aspect Oriented Programming), Instrumentation, and Test
+ 1- The Core Container consists of the Core, Beans, Context, and Expression Language modules.
+ 2- The Data Access/Integration layer consists of the JDBC, ORM, OXM, JMS and Transaction modules.
+ 3- The Web layer consists of the Web, Web-Servlet, WebSocket and Web-Portlet modules.
 
 -------------------------------------------------------------------------Hibernate-----------------------------------------------------------------------------------------------
 Q1. What is hibernate and why to use .?
