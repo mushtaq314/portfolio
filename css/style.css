@@ -290,6 +290,32 @@ header {
     }
 }
 
+@media (max-width: 767px) {
+    .section__title--intro {
+        font-size: 22px; /* Reduce font size for better fit */
+        white-space: normal; /* Ensure text wraps properly */
+        word-break: break-word; /* Prevent text from overflowing */
+    }
+
+    .section__subtitle--intro {
+        font-size: 16px; /* Adjust subtitle font size */
+    }
+
+    .intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px; /* Ensure spacing */
+        overflow: visible; /* Allow full text visibility */
+    }
+
+    .intro__text {
+        max-width: 90%; /* Prevents text from being squeezed */
+        line-height: 1.2; /* Adjusts line spacing */
+    }
+}
+
 
 /*  My services section  */
 
@@ -350,7 +376,9 @@ header {
     @media (min-width: 800px) {
         .services {
             display: flex;
-            max-width: 1000px;
+			padding-left:30px;
+			padding-right:30px;
+            /* max-width: 1000px; */
             margin-left: auto;
             margin-right: auto;
         }
