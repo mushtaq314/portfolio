@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" type="image/x-icon" href="img/user.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mushtaq Portfolio Website</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />  
+        
+        <!-- Update these with your own fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="index.html">
+                <img src="img/fast-forward.gif" alt="" style="width:49%;">
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+					 <li class="nav__item"><a href="Mushtaq Shaikh Resume.pdf" target="_blank" class="nav__link">Download CV</a></li>
+<!--                     <li class="nav__item"><a href="#services" class="nav__link">My Services</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About me</a></li>
+                    <li class="nav__item"><a href="#work" class="nav__link">My Work</a></li> -->
+                </ul>
+            </nav>
+        </header>
+ 
+<section class="intro animate-on-scroll typewriter">
+    <h1 class="section__title section__title--intro" >
+         <strong>Attendance System</strong>
+    </h1>
+<p class="section__subtitle section__subtitle--intro ">Face Recognition Attendance System</p>
+<img src="img/portfolio-12.jpg" alt="Attendance System" class="intro__img" style="height:100%;">
+</section>
+
+<div class="portfolio-item-individual animate-on-scroll">
+
+    <h3>1. Concept <span style="color:#16e0bd;">and</span> Features</h3><br>
+
+    <strong>Concept:</strong>  
+    An advanced and fully automated employee attendance system that uses **Face Recognition + Live Location Tracking** to ensure secure, transparent, and real-time attendance monitoring.  
+    The system includes a dual-panel experience — **Admin Panel** for management and **Employee Panel** for daily usage — combined with offline support, break-in/out features, analytics, and approval workflows.
+
+    <br><br>
+    
+    <!-- LIVE DEMO BUTTON -->
+    <div style="margin: 20px 0;">
+        <a href="https://attendance-project.infinityfreeapp.com/" target="_blank" 
+           style="background:#16e0bd; padding:10px 25px; border-radius:5px; color:#000; font-weight:600; text-decoration:none;">
+           🔗 Live Project Demo
+        </a>
+    </div>
+
+    <strong>Features:</strong>
+    <br><br>
+
+    <!-- FACE LOGIN -->
+    <strong><span style="color:#16e0bd;">>></span> Face Recognition Login System:</strong>
+    <ul>
+        <li><strong>Instant Face Login:</strong> Employees login using AI-powered face recognition (face-api.js).</li>
+        <li><strong>Live Detection:</strong> Prevents login using images or videos.</li>
+        <li><strong>Fallback Login:</strong> Secure email + password method in case of camera issues.</li>
+        <li><strong>Face Descriptor Storage:</strong> Encrypted face-data stored for accurate matching.</li>
+    </ul>
+
+    <!-- LOCATION TRACKING -->
+    <strong><span style="color:#16e0bd;">>></span> Smart Location Tracking:</strong>
+    <ul>
+        <li><strong>Auto Location Capture:</strong> Location recorded at login, break-start, break-end, and logout.</li>
+        <li><strong>Live Tracking:</strong> Admin can view live employee locations during working hours.</li>
+        <li><strong>Offline Support:</strong> If internet is off, system stores location locally and syncs when back online.</li>
+        <li><strong>Geo Validation:</strong> Option to restrict attendance to office radius.</li>
+    </ul>
+
+    <!-- ATTENDANCE MANAGEMENT -->
+    <strong><span style="color:#16e0bd;">>></span> Attendance & Break Automation:</strong>
+    <ul>
+        <li><strong>Auto In-Out:</strong> Time-in captured immediately after face-login.</li>
+        <li><strong>Break-In/Break-Out:</strong> Separate buttons for break tracking with real-time monitoring.</li>
+        <li><strong>Auto Logout Alerts:</strong> Reminder if an employee forgets to logout.</li>
+        <li><strong>Daily Summary:</strong> Total work duration, total break time automatically calculated.</li>
+    </ul>
+
+    <!-- ADMIN CONTROLS -->
+    <strong><span style="color:#16e0bd;">>></span> Admin Controls:</strong>
+    <ul>
+        <li><strong>Approve New Employees:</strong> Admin can approve/reject registrations (double authentication).</li>
+        <li><strong>Manual User Creation:</strong> Admin can create employees directly without registration.</li>
+        <li><strong>Attendance Filters:</strong> Filter by employee name, date range, or status.</li>
+        <li><strong>ZIP Export:</strong> Attendance reports can be downloaded as ZIP (CSV/JSON).</li>
+        <li><strong>Live Dashboard:</strong> Today’s attendance, live employees, pending requests, alerts.</li>
+    </ul>
+
+    <!-- EMPLOYEE SIDE FEATURES -->
+    <strong><span style="color:#16e0bd;">>></span> Employee Panel:</strong>
+    <ul>
+        <li><strong>Customizable Home Feed:</strong> Admin can post announcements that show on employee dashboard.</li>
+        <li><strong>Attendance Timeline:</strong> Daily logs with timestamps and location tags.</li>
+        <li><strong>Profile Management:</strong> Update details, profile photo, and face re-registration.</li>
+        <li><strong>Break History:</strong> Full tracking of break durations.</li>
+    </ul>
+
+    <br><br>
+
+    <h3>3. User Interface</h3>
+
+    <ul>
+        <li><strong>Admin Dashboard:</strong> Graphs, attendance overview, live users, pending approvals.</li>
+        <li><strong>Employee Dashboard:</strong> Face-login button, daily attendance summary, break timers.</li>
+        <li><strong>Attendance Table:</strong> Clean table with sorting, filtering, and export options.</li>
+        <li><strong>Registration Workflow:</strong> Simple form → Email verification → Admin approval.</li>
+        <li><strong>Dark & Light Mode (Optional):</strong> Modern theme toggle for easy use.</li>
+    </ul>
+
+    <br>
+
+    <h3>4. Final Notes</h3>
+
+    <ul>
+        <li><strong>Security:</strong> Encrypted face descriptors, secure sessions, IP & device tracking.</li>
+        <li><strong>Scalability:</strong> Supports 10 to 10,000 employees with optimized queries.</li>
+        <li><strong>Offline Ready:</strong> Works with poor internet; syncs automatically.</li>
+        <li><strong>Future Expansion:</strong> Can integrate payroll, shift management, geofencing rules, etc.</li>
+    </ul>
+
+</div>
+
+
+
+
+
+    <br><br>
+    <img src="img/billing-banner1.jpg" alt="E-Commerce" class="animate-img" width="50%">
+</div>
+
+
+
+
+
+   <!-- Footer -->
+   <footer class="footer" style="background:#111 !important;">
+    <!-- replace with your own email address -->
+    <a href="mailto:mushtaqshaikh884@gmail.com" class="footer__link">mushtaqshaikh884@gmail.com</a><br>
+	<div class="text-center m-top-50">
+    <a class="social-list__link" href="Mushtaq Shaikh Resume.pdf"  target="_blank" title="" ><i class="fab fa-download" download></i> Download Resume</a>
+</div>
+    <ul class="social-list">
+        <li class="social-list__item">
+            <a 
+                class="social-list__link" 
+                href="tel:+918793336313" 
+                rel="noopener noreferrer">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+        
+        <!-- <li class="social-list__item">
+            <a class="social-list__link" href="http://dribbble.com">
+                <i class="fab fa-dribbble"></i>
+            </a>
+        </li> -->
+        <li class="social-list__item">
+            <a 
+                class="social-list__link" 
+                aria-label="Chat on WhatsApp" 
+                href="https://wa.me/918793336313?text=Hi%20Mushtaq%20" 
+                target="_blank" 
+                rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </li>
+        <!-- <li class="social-list__item">
+            <a class="social-list__link" href="https://github.com">
+                <i class="fab fa-github"></i>
+            </a>
+        </li> -->
+    </ul>
+</footer>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-fade-in'); // Or 'animate-slide-up'
+                observer.unobserve(entry.target); // Stop observing once animated
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elements.forEach(element => {
+        observer.observe(element);
+    });
+});
+
+</script>
+<script src="js/index.js"></script>
+</body>
+</html>
